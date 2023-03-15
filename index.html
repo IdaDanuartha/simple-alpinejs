@@ -28,6 +28,13 @@
 
     <button x-data @click="alert('Tombol telah diklik')">Klik aku!</button>
 
+    <hr>
+
+    <div x-data="{ angka: 11, url: '<a href=\'https://youtube.com\'>Link</a>' }">
+        <div>angka <span x-text="angka"></span> adalah angka <span x-text="angka % 2 == 0 ? 'Genap':'Ganjil'"></span></div>
+        <span x-html="url"></span>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
