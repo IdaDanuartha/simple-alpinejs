@@ -7,6 +7,17 @@
     <title>Document</title>
 
     <script src="https://unpkg.com/alpinejs" defer></script>
+
+    <style>
+        .red {
+            background: red;
+            color: white;
+        }
+        .blue {
+            background: blue;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div x-data="{ nama: 'Danuartha' }">
@@ -38,7 +49,7 @@
     <hr>
 
     <div x-data="{ open: false }">
-        <button @click="open = !open">Tampilkan (with x-show)</button>
+        <button @click="open = !open" x-bind:class="open ? 'red':'blue'">Tampilkan (with x-show)</button>
         <div x-show="open" x-transition.origin.bottom.duration.1000ms style="border: 1px solid black; margin-top: 10px;">Ini Konten</div>
     </div>
 
@@ -49,6 +60,7 @@
             <div style="border: 1px solid black; margin-top: 10px;">Ini Konten</div>
         </template>
     </div>
+    
     <script src="main.js"></script>
 </body>
 </html>
