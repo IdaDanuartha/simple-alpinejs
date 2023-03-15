@@ -35,6 +35,20 @@
         <span x-html="url"></span>
     </div>
 
+    <hr>
+
+    <div x-data="{ open: false }">
+        <button @click="open = !open">Tampilkan (with x-show)</button>
+        <div x-show="open" x-transition.origin.bottom.duration.1000ms style="border: 1px solid black; margin-top: 10px;">Ini Konten</div>
+    </div>
+
+    <br>
+    <div x-data="{ is_open: false }">
+        <button @click="is_open = !is_open">Tampilkan (with x-if)</button>
+        <template x-if="is_open">
+            <div style="border: 1px solid black; margin-top: 10px;">Ini Konten</div>
+        </template>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
