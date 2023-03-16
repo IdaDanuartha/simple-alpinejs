@@ -17,6 +17,12 @@
             background: blue;
             color: white;
         }
+        .text-green {
+            color: green;
+        }
+        .text-red {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +75,14 @@
             <input type="text" @keyup.debounce.500ms="console.log($event.target.value)">
             <button @click="$dispatch('tampil', {nama: 'Danuartha'})">Submit</button>
         </div>
+    </div>
+    
+    <hr>
+
+    <div x-data="{ msg: '' }">
+        <input x-model="msg">
+        <span x-text="msg.length" :class="msg.length > 20 ? 'text-red':'text-green'"></span>
+        <span> / 20</span>
     </div>
     <script src="main.js"></script>
 </body>
