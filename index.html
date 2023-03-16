@@ -48,7 +48,7 @@
 
     <hr>
 
-    <div x-data="{ open: false }">
+    <div x-data="{ open: false }" @click.outside="open = false">
         <button @click="open = !open" x-bind:class="open ? 'red':'blue'">Tampilkan (with x-show)</button>
         <div x-show="open" x-transition.origin.bottom.duration.1000ms style="border: 1px solid black; margin-top: 10px;">Ini Konten</div>
     </div>
@@ -61,6 +61,15 @@
         </template>
     </div>
     
+    <hr>
+
+    <div x-data="{ msg: 'Hello World!' }" @tampil="alert('Data telah dikirim oleh ' + $event.detail.nama)">
+        <button @click="console.dir($event.target.id)" id="btnMsg">Klik Saya</button>
+        <div>
+            <input type="text" @keyup.debounce.500ms="console.log($event.target.value)">
+            <button @click="$dispatch('tampil', {nama: 'Danuartha'})">Submit</button>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
